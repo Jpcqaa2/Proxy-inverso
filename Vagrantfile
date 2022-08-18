@@ -20,13 +20,13 @@ Vagrant.configure("2") do |config|
     proxyInvertido.vm.box = "ubuntu/trusty64"
     proxyInvertido.vm.provision "shell", path: "nginx.sh"
     proxyInvertido.vm.network "private_network", ip: "192.168.28.31"
-    apacheWebServer.vm.network "forwarded_port", guest: 80, host: 8080
+    apacheWebServer.vm.network "forwarded_port", guest: 90, host: 9090
   end
   config.vm.define "dockerCompose", autostart: true do |dockerCompose|
     dockerCompose.vm.box = "ubuntu/trusty64"
     dockerCompose.vm.provision "shell", path: "dockerComposeProvision.sh"
     dockerCompose.vm.network "private_network", ip: "192.168.28.32"
-    apacheWebServer.vm.network "forwarded_port", guest: 80, host: 8080
+    apacheWebServer.vm.network "forwarded_port", guest: 60, host: 6060
 
   end
 
